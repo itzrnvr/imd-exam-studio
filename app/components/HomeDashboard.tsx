@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
+import { sitePath } from "../lib/site-path";
 import {
   ArrowRight,
   BookOpenText,
@@ -106,10 +107,10 @@ export function HomeDashboard() {
             the high-risk calculations, then use the complete guide only when a concept needs repair.
           </p>
           <div className="hero-actions">
-            <Link href="/labs" className="button primary">
+            <Link href={sitePath("/labs")} className="button primary">
               Start interactive numericals <ArrowRight size={17} aria-hidden="true" />
             </Link>
-            <Link href="/guide" className="button secondary">Open complete guide</Link>
+            <Link href={sitePath("/guide")} className="button secondary">Open complete guide</Link>
           </div>
         </div>
         <div className="hero-score" aria-label={`${percent} percent of study plan complete`}>
@@ -205,7 +206,7 @@ export function HomeDashboard() {
         </div>
         <div className="resource-grid">
           {resources.map(({ href, title, text, icon: Icon }) => (
-            <Link href={href} className="resource-card" key={href}>
+            <Link href={sitePath(href)} className="resource-card" key={href}>
               <span className="resource-icon"><Icon size={20} aria-hidden="true" /></span>
               <strong>{title}</strong>
               <span>{text}</span>

@@ -4,6 +4,8 @@ import { join, resolve } from "node:path";
 const source = resolve("dist/client");
 const destination = resolve("dist/github-pages");
 const basePath = (process.env.NEXT_PUBLIC_ASSET_BASE_PATH ?? "/imd-exam-studio").replace(/\/$/, "");
+const baseSegment = basePath.slice(1).replace(/[.*+?^$()|[\]\\]/g, "\\$&");
+const notAlreadyPrefixed = `(?!${baseSegment}/)`;
 
 await rm(destination, { recursive: true, force: true });
 await mkdir(destination, { recursive: true });
@@ -20,11 +22,11 @@ async function rewriteTextFiles(directory) {
 
     const content = await readFile(filePath, "utf8");
     const rewritten = content
-      .replaceAll('href="/', `href="${basePath}/`)
-      .replaceAll('src="/', `src="${basePath}/`)
-      .replaceAll('import("/', `import("${basePath}/`)
-      .replaceAll('url("/', `url("${basePath}/`)
-      .replaceAll('\\"/', `\\"${basePath}/`);
+      .replace(new RegExp(`href="/${notAlreadyPrefixed}`, "g"), `href="${basePath}/`)
+      .replace(new RegExp(`src="/${notAlreadyPrefixed}`, "g"), `src="${basePath}/`)
+      .replace(new RegExp(`import\\("/${notAlreadyPrefixed}`, "g"), `import("${basePath}/`)
+      .replace(new RegExp(`url\\("/${notAlreadyPrefixed}`, "g"), `url("${basePath}/`)
+      .replace(new RegExp(`\\\\\\"/${notAlreadyPrefixed}`, "g"), `\\\"${basePath}/`);
 
     if (rewritten !== content) await writeFile(filePath, rewritten);
   }

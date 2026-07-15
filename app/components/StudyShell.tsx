@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { appPathname, sitePath } from "../lib/site-path";
 import {
   BookOpenText,
   BrainCircuit,
@@ -23,13 +24,13 @@ const navigation = [
 ];
 
 export function StudyShell({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname();
+  const pathname = appPathname(usePathname());
 
   return (
     <div className="app-shell">
       <header className="site-header">
         <div className="header-inner">
-          <Link href="/" className="brand" aria-label="IMD Exam Studio home">
+          <Link href={sitePath("/")} className="brand" aria-label="IMD Exam Studio home">
             <span className="brand-mark" aria-hidden="true">
               <BrainCircuit size={21} />
             </span>
@@ -49,7 +50,7 @@ export function StudyShell({ children }: { children: React.ReactNode }) {
         {navigation.map(({ href, label, icon: Icon }) => {
           const active = href === "/" ? pathname === "/" : pathname.startsWith(href);
           return (
-            <Link key={href} href={href} className={active ? "active" : ""}>
+            <Link key={href} href={sitePath(href)} className={active ? "active" : ""}>
               <Icon size={16} aria-hidden="true" />
               <span>{label}</span>
             </Link>
@@ -64,7 +65,7 @@ export function StudyShell({ children }: { children: React.ReactNode }) {
             {navigation.map(({ href, label, icon: Icon }) => {
               const active = href === "/" ? pathname === "/" : pathname.startsWith(href);
               return (
-                <Link key={href} href={href} className={`side-link ${active ? "active" : ""}`}>
+                <Link key={href} href={sitePath(href)} className={`side-link ${active ? "active" : ""}`}>
                   <Icon size={18} aria-hidden="true" />
                   <span>{label}</span>
                 </Link>
