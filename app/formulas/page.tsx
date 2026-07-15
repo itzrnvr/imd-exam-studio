@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import formulaSheet from "../../content/imd_formula_sheet.md?raw";
 import { MarkdownReader } from "../components/MarkdownReader";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "Formula and Symbol Sheet",
 };

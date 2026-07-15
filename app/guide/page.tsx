@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import guide from "../../content/imd_study_guide.md?raw";
 import { MarkdownReader } from "../components/MarkdownReader";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "Complete Study Guide",
 };

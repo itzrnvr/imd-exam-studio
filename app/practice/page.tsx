@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import workbook from "../../content/imd_numerical_workbook.md?raw";
 import { PracticeReader } from "../components/PracticeReader";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "Numerical Practice",
 };

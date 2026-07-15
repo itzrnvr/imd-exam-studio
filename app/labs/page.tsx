@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { InteractiveLabs } from "../components/InteractiveLabs";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "Interactive Numerical Labs",
 };

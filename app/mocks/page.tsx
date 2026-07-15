@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import mockPapers from "../../content/imd_mock_papers.md?raw";
 import { MockExamReader } from "../components/MockExamReader";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "100-Mark Mock Papers",
 };

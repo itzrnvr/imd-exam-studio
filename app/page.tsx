@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { HomeDashboard } from "./components/HomeDashboard";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "Start Here",
 };
