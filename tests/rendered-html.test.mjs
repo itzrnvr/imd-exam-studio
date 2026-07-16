@@ -33,6 +33,7 @@ test("all core study routes render meaningful content", async () => {
     ["/labs", /Interactive numerical tutorials/],
     ["/practice", /Numerical workbook/],
     ["/mocks", /Three complete 100-mark mock papers/],
+    ["/surprise", /Surprise exam generator/],
     ["/formulas", /Formula and symbol sheet/],
   ];
 

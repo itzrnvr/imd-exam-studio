@@ -12,6 +12,7 @@ import {
   FileCheck2,
   FlaskConical,
   Sigma,
+  Shuffle,
   Sparkles,
   Target,
 } from "lucide-react";
@@ -23,7 +24,7 @@ const plan = [
   { time: "2:25-3:05", task: "Work through attention and ViT patch arithmetic" },
   { time: "3:05-3:50", task: "Revise GAN, autoencoder, attacks, and regularization" },
   { time: "3:50-4:20", task: "Review XAI, transfer learning, data bias, and lab concepts" },
-  { time: "4:20-5:50", task: "Attempt Mock Paper 1 and mark it immediately" },
+  { time: "4:20-5:50", task: "Generate one Surprise Exam, attempt it, and mark it immediately" },
   { time: "Last 30 min", task: "Read only the formula sheet and redo wrong numericals" },
 ];
 
@@ -66,6 +67,12 @@ const resources = [
     text: "A compact final-hour reference with every recurring symbol defined.",
     icon: Sigma,
   },
+  {
+    href: "/surprise",
+    title: "Surprise exam mode",
+    text: "Random 25, 50, or 100-mark papers that do not depend on one fixed pattern.",
+    icon: Shuffle,
+  },
 ];
 
 export function HomeDashboard() {
@@ -103,14 +110,15 @@ export function HomeDashboard() {
           <p className="eyebrow"><Sparkles size={16} aria-hidden="true" /> Your exam command centre</p>
           <h1>Understand it visually. Practise it numerically. Recall it under pressure.</h1>
           <p className="hero-lede">
-            Everything from your 16 lecture PDFs and the previous paper is organized here. Start with
-            the high-risk calculations, then use the complete guide only when a concept needs repair.
+            Everything from your 16 lecture PDFs is organized here. The previous paper is treated only as
+            evidence—not a promise—so you practise unseen numerical, theory, and design questions too.
           </p>
           <div className="hero-actions">
             <Link href={sitePath("/labs")} className="button primary">
               Start interactive numericals <ArrowRight size={17} aria-hidden="true" />
             </Link>
             <Link href={sitePath("/guide")} className="button secondary">Open complete guide</Link>
+            <Link href={sitePath("/surprise")} className="button secondary">Generate surprise paper</Link>
           </div>
         </div>
         <div className="hero-score" aria-label={`${percent} percent of study plan complete`}>

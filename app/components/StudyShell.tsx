@@ -11,6 +11,7 @@ import {
   FileCheck2,
   FlaskConical,
   Home,
+  Shuffle,
   Sigma,
 } from "lucide-react";
 
@@ -20,6 +21,7 @@ const navigation = [
   { href: "/labs", label: "Interactive labs", icon: FlaskConical },
   { href: "/practice", label: "Numerical practice", icon: Calculator },
   { href: "/mocks", label: "100-mark mocks", icon: FileCheck2 },
+  { href: "/surprise", label: "Surprise exam", icon: Shuffle },
   { href: "/formulas", label: "Formula sheet", icon: Sigma },
 ];
 
